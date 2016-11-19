@@ -14,7 +14,7 @@ function respond(org, numberOfRepos) {
 function cache(req, res, next) {
     const org = req.query.org;
     client.get(org, function (err, data) {
-        if (data) {
+        if (data != null) {
             res.send(respond(org, data));
         } else {
             next();
