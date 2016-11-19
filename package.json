@@ -1,0 +1,18 @@
+{
+  "name": "redis-caching-tutorial",
+  "version": "1.0.0",
+  "description": "Introduction to caching with Redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "PORT=3000 REDIS_PORT=7777 node index.js",
+    "dev": "PORT=3000 REDIS_PORT=7777 node --debug=5858 index.js"
+  },
+  "author": "Akos Kemives <akoskm@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "redis": "^2.6.3",
+    "superagent": "^2.3.0"
+  }
+}
