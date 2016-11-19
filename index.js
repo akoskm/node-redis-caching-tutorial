@@ -22,7 +22,7 @@ function cache(req, res, next) {
     });
 }
 
-app.get('/repos', cache, function (req, res, next) {
+function getNumberOfRepos(req, res, next) {
     const org = req.query.org;
     request.get(`https://api.github.com/orgs/${org}/repos`, function (err, response) {
         if (err) {
@@ -36,7 +36,9 @@ app.get('/repos', cache, function (req, res, next) {
         client.setex(org, 5, repoNumber);
         res.send(respond(org, repoNumber));
     });
-});
+}
+
+app.get('/repos', cache, getNumberOfRepos);
 
 app.listen(PORT, function () {
     console.log('app listening on port', PORT);
